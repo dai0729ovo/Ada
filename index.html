@@ -32,6 +32,19 @@
         }
 
         /* 主体内容 */
+        <div class="container-split">
+    <div class="left-box">
+        <h3>左侧：图片/说明</h3>
+        <p>这里可以放一些设计草图或者技术参数。</p>
+    </div>
+    <div class="right-box">
+        <h3>右侧：列表/详情</h3>
+        <ul>
+            <li>特点 A</li>
+            <li>特点 B</li>
+        </ul>
+    </div>
+</div>
         main {
             flex: 1;
             width: 90%;
@@ -93,7 +106,26 @@
         <p>&copy; 2026 我的 GitHub 项目. 保留所有权利。</p>
     </footer>
 
-    <script>
+    <script/* 让这两个盒子左右并排 */
+.container-split {
+    display: flex; /* 开启弹性布局 */
+    gap: 20px;     /* 两个盒子之间的间距 */
+    margin-top: 20px;
+}
+
+.left-box, .right-box {
+    flex: 1;       /* 平分宽度 */
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+/* 手机端自动变成上下堆叠 */
+@media (max-width: 600px) {
+    .container-split {
+        flex-direction: column;
+    }
+}>
         function showMessage() {
             alert('恭喜！你的第一个网站运行成功了！');
         }
