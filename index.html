@@ -1,129 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人站点</title>
+    <title>Astra Landing Page</title>
     <style>
-        /* --- 1. 基础样式抽屉 --- */
+        /* 基础重置与字体 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* 页面主体背景：紫蓝色渐变 */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f6;
+            background: linear-gradient(135deg, #3a0ca3, #7209b7, #b5179e);
+            color: #ffffff;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
+        /* --- 顶部导航栏 --- */
         header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 8%;
         }
 
-        main {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Logo 图片占位符样式 */
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2); /* 没有图片时的背景色 */
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* --- 主视觉区域 (Hero Section) --- */
+        .hero {
+            display: flex;
             flex: 1;
-            width: 90%;
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            gap: 4rem;
         }
 
-        h1 { margin-bottom: 1rem; color: #2c3e50; }
-        p { margin-bottom: 1.5rem; }
-
-        /* --- 2. 这里是新增的排版样式 --- */
-        .container-split {
-            display: flex; /* 开启弹性布局 */
-            gap: 20px;     /* 两个盒子之间的间距 */
-            margin-top: 20px;
+        /* 左侧文字区 */
+        .text-content {
+            flex: 1;
+            max-width: 500px;
         }
 
-        .left-box, .right-box {
-            flex: 1;       /* 平分宽度 */
-            padding: 15px;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            background-color: #fafafa;
+        .text-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
         }
 
-        /* 手机端自动变成上下堆叠 */
-        @media (max-width: 600px) {
-            .container-split {
-                flex-direction: column;
-            }
+        .text-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .btn {
-            display: inline-block;
-            background: #3498db;
-            color: #fff;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-            margin-bottom: 20px;
+            background-color: #ffca3a; /* 黄色按钮 */
+            color: #1a1a1a;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
 
-        .btn:hover { background: #2980b9; }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.9rem;
-            color: #777;
+        /* 右侧图片区 */
+        .image-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 右侧大图占位符样式 */
+        .image-content img {
+            width: 100%;
+            max-width: 600px;
+            min-height: 400px;
+            background-color: rgba(255, 255, 255, 0.1); /* 没有图片时的占位背景 */
+            border: 2px dashed rgba(255, 255, 255, 0.3); /* 占位虚线边框，插入图片后可删除此行 */
+            border-radius: 15px;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>欢迎来到我的新仓库</h1>
+        <div class="logo">
+            <img src="替换为你的logo链接.png" alt="Logo">
+            <span>ASTRA</span>
+        </div>
+        <nav>
+            <a href="#">首页</a>
+            <a href="#">服务</a>
+            <a href="#">关于</a>
+            <a href="#">评价</a>
+            <a href="#">为什么选择我们</a>
+            <a href="#">联系</a>
+        </nav>
     </header>
 
-    <main>
-        <h2>你好，世界！</h2>
-        <p>这是一个基于 GitHub 构建的基础前端页面。</p>
+    <main class="hero">
+        <div class="text-content">
+            <h1>Your Idea Matters!</h1>
+            <p>Pulvinar enim ac tortor nulla facilisi tristique facilisi elementum sollicitudin eget lorem.</p>
+            <button class="btn">Make a Website</button>
+        </div>
         
-        <a href="#" class="btn" onclick="showMessage()">点击互动</a>
-
-        <div class="container-split">
-            <div class="left-box">
-                <h3>左侧：设计/说明</h3>
-                <p>这里可以放置你的设计稿说明或者技术参数。比如：CAD 导出流程等。</p>
-            </div>
-            <div class="right-box">
-                <h3>右侧：列表/详情</h3>
-                <ul style="margin-left: 20px;">
-                    <li>核心优势 A</li>
-                    <li>核心优势 B</li>
-                    <li>核心优势 C</li>
-                </ul>
-            </div>
+        <div class="image-content">
+            <img src="替换为你的右侧插图链接.png" alt="Hero Illustration">
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 我的 GitHub 项目. 保留所有权利。</p>
-    </footer>
-
-    <script>
-        /* --- 4. 交互动作抽屉 --- */
-        function showMessage() {
-            alert('恭喜！你的第一个网站运行成功了！');
-        }
-    </script>
 </body>
 </html>
