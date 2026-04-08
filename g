@@ -95,3 +95,68 @@
         }
 
         .btn {
+            background-color: #ffca3a; /* 黄色按钮 */
+            color: #1a1a1a;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* 右侧图片区 */
+        .image-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 右侧大图占位符样式 */
+        .image-content img {
+            width: 100%;
+            max-width: 600px;
+            min-height: 400px;
+            background-color: rgba(255, 255, 255, 0.1); /* 没有图片时的占位背景 */
+            border: 2px dashed rgba(255, 255, 255, 0.3); /* 占位虚线边框，插入图片后可删除此行 */
+            border-radius: 15px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="替换为你的logo链接.png" alt="Logo">
+            <span>ASTRA</span>
+        </div>
+        <nav>
+            <a href="#">首页</a>
+            <a href="#">服务</a>
+            <a href="#">关于</a>
+            <a href="#">评价</a>
+            <a href="#">为什么选择我们</a>
+            <a href="#">联系</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="text-content">
+            <h1>Your Idea Matters!</h1>
+            <p>Pulvinar enim ac tortor nulla facilisi tristique facilisi elementum sollicitudin eget lorem.</p>
+            <button class="btn">Make a Website</button>
+        </div>
+        
+        <div class="image-content">
+            <img src="替换为你的右侧插图链接.png" alt="Hero Illustration">
+        </div>
+    </main>
+
+</body>
+</html>
